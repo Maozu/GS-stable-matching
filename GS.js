@@ -1,100 +1,99 @@
-function ggg() {
+var  NUMBER;
+var male = [];
+var female = [];
+var times = 0;
+var counter = 0;
+
+
+function GS() {
     // "use strict";
-    let NUMBER = Number(document.forms["hhh"]["number"].value);
-    // const NUMBER = 10;
-    var a = 0;
-    var b = 0;
+    NUMBER = Number(document.forms["hhh"]["number"].value);
+    init();
+}
 
-    for(let i = 0; i < 1; i++){
-        GS();
-        console.log("%c male" + a,'color: green');
-        console.log("female" + b);
+function init() {
+    for(let i = 0; i < NUMBER; i++){
+        female[i] = [];
+        male[i] = [];
+        for(let j = 0; j < NUMBER; j++){
+            female[i][j] = j;
+            male[i][j] = j;
+        }
+        female[i].sort(function(){
+            return 0.5 - Math.random();
+        });
+        male[i].sort(function(){
+            return 0.5 - Math.random();
+        });
+        female[i].engage = -1;
+        male[i].engage = -1;
     }
-    function GS() {
-        // const NUMBER = 10;
-        //init
-        var female = [];
-        var male = [];
-        for(let i = 0; i < NUMBER; i++){
-            female[i] = [];
-            male[i] = [];
-            for(let j = 0; j < NUMBER; j++){
-                female[i][j] = j;
-                male[i][j] = j;
-            }
-            female[i].sort(function(){
-                return 0.5 - Math.random();
-            });
-            male[i].sort(function(){
-                return 0.5 - Math.random();
-            });
-            female[i].engage = -1;
-            male[i].engage = -1;
-        }
+    times = 0;
+    counter = 0;
+    get_answer();
+}
 
-        for(let j = 0; j < NUMBER ;j++){
-            try_engage(male,female,j);
-        }
-        console.log(female);
-        console.log(male);
-        // for(let i = 0; i < NUMBER; i++){
-        //     console.log("female " + i + " : " + female[i].engage)
-        // }
-        // for(let i = 0; i < NUMBER; i++){
-        //     console.log("male " + i + " : " + male[i].engage)
-        // }
-        function try_engage(male, female, j) {
-            for(let i = 0; i < NUMBER ;i++){
-                // console.log("i am "+ i +"i am trying" + j + "times");
-                if(-1 !== male[i].engage){
-                    // console.log("i am married, i am "+ i);
-                }else {
-                    let pursued = male[i][j];
-                    if(female[pursued].engage === -1){
+function try_engage(male, female, j) {
+    for(let i = 0; i < NUMBER ;i++){
+        if(-1 !== male[i].engage){
+        }else {
+            let pursued = male[i][j];
+            if(female[pursued].engage === -1){
+                female[pursued].engage = i;
+                male[i].engage = pursued;
+            }else {
+                for(let k = 0; k < NUMBER; k++){
+
+                    if(female[pursued][k] === female[pursued].engage ){
+                        break;
+                    }
+                    if(female[pursued][k] === i){
+                        male[female[pursued].engage].engage = -1;
                         female[pursued].engage = i;
                         male[i].engage = pursued;
-                        // console.log("i am lucky, i am "+ i + " my gf is "+pursued)
-                    }else {
-                        for(let k = 0; k < NUMBER; k++){
-
-                            if(female[pursued][k] === female[pursued].engage ){
-                                // console.log("i have'd try and fail, i am "+i+" mygf'bf is "+female[pursued].engage);
-                                break;
-                            }
-                            if(female[pursued][k] === i){
-                                male[female[pursued].engage].engage = -1;
-                                female[pursued].engage = i;
-                                male[i].engage = pursued;
-                                // console.log("i have'd try and succeed, i am "+i+" mygf is "+pursued);
-                                break;
-                            }
-                        }
+                        break;
                     }
                 }
             }
         }
-
-        var sum_f = 0;
-        for(let i = 0; i < NUMBER; i++){
-            for (let j = 0; j < NUMBER; j++){
-                if(female[i].engage === female[i][j]){
-                    sum_f += j;
-                    break;
-                }
-            }
-        }
-        var sum = 0;
-        for(let i = 0; i < NUMBER; i++){
-            for (let j = 0; j < NUMBER; j++){
-                if(male[i].engage === male[i][j]){
-                    sum += j;
-                    break;
-                }
-            }
-        }
-        a += sum_f;
-        b += sum;
-        // console.log("male" + sum/NUMBER);
-        // console.log("female" + sum_f/NUMBER);
     }
+}
+
+function get_answer() {
+    let data_m = "";
+    let data_f = "";
+    data_m += "<table>"; data_f += "<table>";
+    for(let i = 0; i < NUMBER; i++){
+        data_f += '<tr>'; data_m += '<tr>';
+        for(let j = 0; j < NUMBER; j++){
+            let change_m = "off", change_f = "off";
+            if(male[i].engage === male[i][j]){
+                change_m = "on";
+            }
+            if(female[i].engage === male[i][j]){
+                change_f = "on";
+            }
+            data_m += `<td class=${change_m}>${male[i][j]}</td>`;
+            data_f += `<td class=${change_f}>${female[i][j]}</td>`;
+        }
+        data_m += '</tr>'; data_f += '</tr>';
+    }
+    data_m += "</table>"; data_f += "</table>";
+    document.getElementById('engage_m').innerHTML = data_m;
+    document.getElementById('engage_f').innerHTML = data_f;
+}
+
+function count() {
+    if(times < NUMBER){
+        try_engage(male,female,times);
+        times += 1;
+        get_answer();
+    }
+}
+
+function final() {
+    for(let i = 0; i < NUMBER; i++){
+        count();
+    }
+
 }

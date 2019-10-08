@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Engage</title>
+    <link rel="stylesheet" type="text/css" href="hhh.css">
 </head>
 <body>
-<form name="hhh" onsubmit="return ggg()" target="frameName">
+
+
+<form name="hhh" onsubmit="return GS()" target="frameName">
     How many dogs do you want?<br>
     <input type="text" name="number">
 <!--    <button type='submit'>提交</button>-->
     <input type="submit" value="hhh">
 </form>
 <iframe src="#" name="frameName" style="display:none"></iframe>
-<article id="answer"></article>
+<button onclick="count()">ForOneTime</button>
+<button onclick="final()">ForLast</button>
+<button onclick="init()">restart</button>
+<div id="engage_m"></div>
+<div id="engage_f"></div>
+
 <script src="GS.js"></script>
-<script src="vue.js"></script>
 </body>
 </html>
