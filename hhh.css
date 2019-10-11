@@ -1,3 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.main {
+  background-color: #b9dec9;
+}
+.tab {
+  padding: 10px 4px;
+  background-color: #485b4d;
+}
+.tab form {
+  width: 50%;
+  float: left;
+}
+.tab form input {
+  width: 30%;
+  height: 2rem;
+  padding-left: 0.7rem;
+  transition: 1s;
+  border-radius: 3px;
+  border: 1px solid #2c9678;
+  background-color: transparen;
+}
+.tab form input:focus {
+  width: 40%;
+  transition: 1s;
+}
+.tab form input::-webkit-outer-spin-button,
+.tab form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.tab form input [type="number"] {
+  -moz-appearance: textfield;
+}
+.tab .but {
+  width: 50%;
+  float: right;
+}
+.tab .but button {
+  float: right;
+  height: 2rem;
+}
+.tab .clear {
+  clear: both;
+}
 #engage_f,
 #engage_m {
   color: black;

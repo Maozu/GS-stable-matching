@@ -7,11 +7,12 @@ var counter = 0;
 
 function GS() {
     // "use strict";
-    NUMBER = Number(document.forms["hhh"]["number"].value);
+
     init();
 }
 
 function init() {
+    NUMBER = Number(document.forms["hhh"]["number"].value);
     for(let i = 0; i < NUMBER; i++){
         female[i] = [];
         male[i] = [];

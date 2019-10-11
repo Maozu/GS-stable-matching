@@ -7,19 +7,23 @@
 </head>
 <body>
 
+<div class="main">
+    <div class="tab">
+        <form name="hhh" onsubmit="return GS()" target="frameName" autocomplete="off">
+            <input type="number" name="number" placeholder="请输入相亲平台规模">
+        </form>
+        <div class="but">
+            <button onclick="init()">restart</button>
+            <button onclick="count()">ForOneTime</button>
+            <button onclick="final()">ForLast</button>
+        </div>
+        <div class="clear"></div>
+    </div>
 
-<form name="hhh" onsubmit="return GS()" target="frameName">
-    How many dogs do you want?<br>
-    <input type="text" name="number">
-<!--    <button type='submit'>提交</button>-->
-    <input type="submit" value="hhh">
-</form>
-<iframe src="#" name="frameName" style="display:none"></iframe>
-<button onclick="count()">ForOneTime</button>
-<button onclick="final()">ForLast</button>
-<button onclick="init()">restart</button>
-<div id="engage_m"></div>
-<div id="engage_f"></div>
+    <div id="engage_m"></div>
+    <div id="engage_f"></div>
+</div>
+
 
 <script src="GS.js"></script>
 </body>
