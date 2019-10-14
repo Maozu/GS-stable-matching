@@ -9,13 +9,13 @@
 
 <div class="main">
     <div class="tab">
-        <form name="hhh" onsubmit="return GS()" target="frameName" autocomplete="off">
+        <form name="form_number" onsubmit="return GS()" target="frameName" autocomplete="off">
             <input type="number" name="number" placeholder="请输入相亲平台规模">
         </form>
         <div class="but">
             <button onclick="init()">restart</button>
-            <button onclick="count()">ForOneTime</button>
-            <button onclick="final()">ForLast</button>
+            <button onclick="count()" id="for_one">ForOneTime</button>
+            <button onclick="final()" id="for_last">ForLast</button>
         </div>
         <div class="clear"></div>
     </div>

@@ -5,6 +5,7 @@
 }
 .main {
   background-color: #b9dec9;
+  height: 1000px;
 }
 .tab {
   padding: 10px 4px;
@@ -21,7 +22,8 @@
   transition: 1s;
   border-radius: 3px;
   border: 1px solid #2c9678;
-  background-color: transparen;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #b9dec9;
 }
 .tab form input:focus {
   width: 40%;
@@ -41,6 +43,7 @@
 .tab .but button {
   float: right;
   height: 2rem;
+  margin: 1px;
 }
 .tab .clear {
   clear: both;

@@ -1,0 +1,69 @@
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.main{
+  background-color: #b9dec9;
+  height: 1000px;
+}
+.tab{
+  padding: 10px 4px;
+  background-color: #485b4d;
+  form{
+    width: 50%;
+    float: left;
+    input{
+      width: 30%;
+      height: 2rem;
+      padding-left: 0.7rem;
+      transition: 1s;
+      border-radius: 3px;
+      border: 1px solid #2c9678;
+      background-color: rgba(0,0,0,0.5);
+      color: #b9dec9;
+      &:focus{
+        width: 40%;
+        transition: 1s;
+      }
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      [type="number"]{
+        -moz-appearance: textfield;
+      }
+    }
+  }
+  .but{
+    width: 50%;
+    float: right;
+    button{
+      float: right;
+      height: 2rem;
+      margin: 1px;
+    }
+  }
+  .clear{
+    clear: both;
+  }
+}
+
+
+
+
+
+
+
+
+
+#engage_f, #engage_m {
+  color: black;
+  .off{
+    background-color: cadetblue;
+  }
+  .on{
+    background-color: aquamarine;
+  }
+}

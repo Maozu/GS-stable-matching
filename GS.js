@@ -1,4 +1,4 @@
-var  NUMBER;
+var NUMBER;
 var male = [];
 var female = [];
 var times = 0;
@@ -7,12 +7,11 @@ var counter = 0;
 
 function GS() {
     // "use strict";
-
     init();
 }
 
 function init() {
-    NUMBER = Number(document.forms["hhh"]["number"].value);
+    NUMBER = Number(document.forms["form_number"]["number"].value);
     for(let i = 0; i < NUMBER; i++){
         female[i] = [];
         male[i] = [];
@@ -35,7 +34,7 @@ function init() {
 }
 
 function try_engage(male, female, j) {
-    for(let i = 0; i < NUMBER ;i++){
+    for(let i = 0; i < NUMBER; i++){
         if(-1 !== male[i].engage){
         }else {
             let pursued = male[i][j];
@@ -85,11 +84,15 @@ function get_answer() {
 }
 
 function count() {
-    if(times < NUMBER){
-        try_engage(male,female,times);
+    if(times < NUMBER) {
+        try_engage(male, female, times);
         times += 1;
         get_answer();
     }
+    // }else {
+    //     document.getElementById("for_one").disabled = "disabled";
+    //     document.getElementById("for_last").disabled = "disabled";
+    // }
 }
 
 function final() {
